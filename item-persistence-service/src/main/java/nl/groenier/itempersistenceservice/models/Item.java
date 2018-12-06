@@ -1,10 +1,17 @@
 package nl.groenier.itempersistenceservice.models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Date;
 
+@Entity
 public class Item {
 
-	private String id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer id;
 
 	private Location origin;
 	private Location destination;
@@ -14,7 +21,7 @@ public class Item {
 
 	private Date dateOfRegistration;
 
-	public Item(String id, Location origin, Location destination, String descriptionOfContent, int weightInGram, Date dateOfRegistration) {
+	public Item(Integer id, Location origin, Location destination, String descriptionOfContent, int weightInGram, Date dateOfRegistration) {
 		this.id = id;
 		this.origin = origin;
 		this.destination = destination;
@@ -23,11 +30,11 @@ public class Item {
 		this.dateOfRegistration = dateOfRegistration;
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

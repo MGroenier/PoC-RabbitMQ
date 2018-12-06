@@ -1,5 +1,6 @@
 package nl.groenier.itempersistenceservice;
 
+import nl.groenier.itempersistenceservice.controllers.ItemController;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.DirectExchange;
@@ -27,8 +28,8 @@ public class ItemPersistenceServiceApplication {
 	}
 
 	@Bean
-	public Server server() {
-		return new Server();
+	public ItemController server() {
+		return new ItemController();
 	}
 
 	public static void main(String[] args) {
