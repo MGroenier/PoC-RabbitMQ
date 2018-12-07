@@ -11,20 +11,20 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class LabelBusinessServiceApplication {
 
-	@Bean
-	Queue queue() {
-		return new Queue("queue-a", false);
-	}
-
-	@Bean
-	DirectExchange exchange() {
-		return new DirectExchange("spring-boot-direct-exchange");
-	}
-
-	@Bean
-	Binding binding(Queue queue, DirectExchange exchange) {
-		return BindingBuilder.bind(queue).to(exchange).with("queue-a");
-	}
+//	@Bean
+//	Queue queue() {
+//		return new Queue("queue-a", false);
+//	}
+//
+//	@Bean
+//	DirectExchange exchange() {
+//		return new DirectExchange("spring-boot-direct-exchange");
+//	}
+//
+//	@Bean
+//	Binding binding(Queue queue, DirectExchange exchange) {
+//		return BindingBuilder.bind(queue).to(exchange).with("queue-a");
+//	}
 
 	@Bean
 	public Server server() {

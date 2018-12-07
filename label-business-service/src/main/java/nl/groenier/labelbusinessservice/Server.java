@@ -1,6 +1,5 @@
 package nl.groenier.labelbusinessservice;
 
-import nl.groenier.itempersistenceservice.models.Item;
 import nl.groenier.labelbusinessservice.services.ItemService;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;

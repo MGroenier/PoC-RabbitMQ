@@ -12,20 +12,20 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class ItemPersistenceServiceApplication {
 
-	@Bean
-	Queue queue() {
-		return new Queue("queue-b", false);
-	}
-
-	@Bean
-	DirectExchange exchange() {
-		return new DirectExchange("spring-boot-direct-exchange-b");
-	}
-
-	@Bean
-	Binding binding(Queue queue, DirectExchange exchange) {
-		return BindingBuilder.bind(queue).to(exchange).with("queue-b");
-	}
+//	@Bean
+//	Queue queue() {
+//		return new Queue("queue-b", false);
+//	}
+//
+//	@Bean
+//	DirectExchange exchange() {
+//		return new DirectExchange("spring-boot-direct-exchange-b");
+//	}
+//
+//	@Bean
+//	Binding binding(Queue queue, DirectExchange exchange) {
+//		return BindingBuilder.bind(queue).to(exchange).with("queue-b");
+//	}
 
 	@Bean
 	public ItemController server() {
