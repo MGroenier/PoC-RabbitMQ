@@ -15,6 +15,14 @@ public class ItemServiceImpl implements ItemService{
 	}
 
 	@Override
+	public String requestReplyLabel(int id) {
+		System.out.println("sending message: " + id);
+		String response = (String) rabbitTemplate.convertSendAndReceive("item-topic-exchange", "item.read", id);
+		System.out.println("Received reply is: " + response);
+		return response;
+	}
+
+	@Override
 	public String requestReplyItem(int id) {
 		System.out.println("sending message: " + id);
 		String response = (String) rabbitTemplate.convertSendAndReceive("spring-boot-direct-exchange-b", "queue-b", id);

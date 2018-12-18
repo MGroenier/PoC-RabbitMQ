@@ -17,7 +17,7 @@ public class LabelServiceImpl implements LabelService {
 	@Override
 	public String requestReplyLabel(int id) {
 		System.out.println("sending message: " + id);
-		String response = (String) rabbitTemplate.convertSendAndReceive("spring-boot-direct-exchange", "queue-a", id);
+		String response = (String) rabbitTemplate.convertSendAndReceive("label-topic-exchange", "label.read", id);
 		System.out.println("Received reply is: " + response);
 		return response;
 	}
