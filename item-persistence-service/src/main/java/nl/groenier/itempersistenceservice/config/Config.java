@@ -29,8 +29,7 @@ public class Config {
 	public Declarables ex() {
 		TopicExchange itemTopicExchange = new TopicExchange("item-topic-exchange");
 
-		return new Declarables(
-				itemTopicExchange);
+		return new Declarables(itemTopicExchange);
 	}
 
 	@Bean
