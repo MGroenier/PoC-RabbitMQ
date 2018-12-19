@@ -1,6 +1,6 @@
 package nl.groenier.labelbusinessservice.config;
 
-import nl.groenier.labelbusinessservice.controllers.LabelController;
+import nl.groenier.labelbusinessservice.controllers.LabelBusinessController;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.Declarables;
 import org.springframework.amqp.core.Queue;
@@ -30,8 +30,8 @@ public class Config {
 	}
 
 	@Bean
-	public LabelController labelController() {
-		return new LabelController();
+	public LabelBusinessController labelController() {
+		return new LabelBusinessController();
 	}
 
 }

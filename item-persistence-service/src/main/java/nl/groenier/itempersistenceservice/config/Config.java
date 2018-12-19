@@ -1,6 +1,6 @@
 package nl.groenier.itempersistenceservice.config;
 
-import nl.groenier.itempersistenceservice.controllers.ItemController;
+import nl.groenier.itempersistenceservice.controllers.ItemPersistenceController;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.Declarables;
 import org.springframework.amqp.core.Queue;
@@ -47,8 +47,8 @@ public class Config {
 	}
 
 	@Bean
-	public ItemController itemController() {
-		return new ItemController();
+	public ItemPersistenceController itemController() {
+		return new ItemPersistenceController();
 	}
 
 }

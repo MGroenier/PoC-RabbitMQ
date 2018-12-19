@@ -3,31 +3,33 @@ package nl.groenier.labelbusinessservice.controllers;
 import com.google.gson.Gson;
 import nl.groenier.labelbusinessservice.models.Item;
 import nl.groenier.labelbusinessservice.services.ItemService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class LabelController {
+public class LabelBusinessController {
+
+	private final Logger logger = LoggerFactory.getLogger(LabelBusinessController.class);
 
 	private Gson gson;
 
 	@Autowired
 	private ItemService itemService;
 
-	public LabelController() {
+	public LabelBusinessController() {
 		gson =  new Gson();
 	}
 
 	@RabbitListener(queues = "label-read-queue")
 	public String readLabel(int id) {
-		System.out.println("Label Business Service --- Label requested!");
+		logger.info("Message read from label-read-queue");
 
 		String reply = itemService.requestReplyLabel(id);
 
-		System.out.println(reply);
+		logger.debug("Read message: " + reply);
 
 		Item receivedItem = gson.fromJson(reply,Item.class);
-
-		System.out.println(receivedItem);
 
 		return reply;
 	}
