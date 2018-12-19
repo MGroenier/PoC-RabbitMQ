@@ -1,11 +1,15 @@
 package nl.groenier.labelbusinessservice.services;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ItemServiceImpl implements ItemService{
+
+	private final Logger logger = LoggerFactory.getLogger(ItemServiceImpl.class);
 
 	private RabbitTemplate rabbitTemplate;
 
@@ -16,17 +20,10 @@ public class ItemServiceImpl implements ItemService{
 
 	@Override
 	public String requestReplyLabel(int id) {
-		System.out.println("sending message: " + id);
+		logger.info("Sending message to exchange 'item-topic-exchange' with routingKey 'item.read'");
 		String response = (String) rabbitTemplate.convertSendAndReceive("item-topic-exchange", "item.read", id);
-		System.out.println("Received reply is: " + response);
+		logger.info("Received reply: " + response);
 		return response;
 	}
 
-	@Override
-	public String requestReplyItem(int id) {
-		System.out.println("sending message: " + id);
-		String response = (String) rabbitTemplate.convertSendAndReceive("spring-boot-direct-exchange-b", "queue-b", id);
-		System.out.println("Received reply is: " + response);
-		return response;
-	}
 }

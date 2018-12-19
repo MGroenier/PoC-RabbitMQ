@@ -27,13 +27,15 @@ public class ItemPersistenceController {
 //		String json = gson.toJson(db.getItem(id));
 		itemPersistenceServiceImpl.create(itemToCreate);
 		String json = "ha";
+		logger.info("Returning result");
 		return json;
 	}
 
 	@RabbitListener(queues = "item-read-queue")
 	public String read(Integer id) {
-		logger.info("Message read from item-read-queue");
+		logger.info("Message retrieved from item-read-queue");
 		String json = gson.toJson(itemPersistenceServiceImpl.read(id));
+		logger.info("Returning result");
 		return json;
 	}
 

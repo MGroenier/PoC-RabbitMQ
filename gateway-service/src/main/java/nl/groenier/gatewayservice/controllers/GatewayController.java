@@ -24,11 +24,8 @@ public class GatewayController {
 	@GetMapping("/label")
 	@ResponseBody
 	public String readLabel(@RequestParam(name="item-id") int item_id) {
-
 		logger.info("/label endpoint was called.");
-
 		String response = labelService.requestReplyLabel(item_id);
-
 		return response;
 	}
 
