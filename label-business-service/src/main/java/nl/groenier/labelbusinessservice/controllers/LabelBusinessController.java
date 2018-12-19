@@ -30,6 +30,7 @@ public class LabelBusinessController {
 		logger.debug("Read message: " + reply);
 
 		Item receivedItem = gson.fromJson(reply,Item.class);
+		logger.info("received deserialized Item: " + receivedItem);
 
 		return reply;
 	}

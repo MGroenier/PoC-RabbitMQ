@@ -1,11 +1,8 @@
 package nl.groenier.labelbusinessservice.models;
 
-import java.util.Date;
-
 public class Item {
 
 	private Integer id;
-
 	private String descriptionOfContent;
 	private int weightInGram;
 
@@ -36,7 +33,7 @@ public class Item {
 	@Override
 	public String toString() {
 		return "Item{" +
-				"id='" + id + '\'' +
+				"id=" + id +
 				", descriptionOfContent='" + descriptionOfContent + '\'' +
 				", weightInGram=" + weightInGram +
 				'}';

@@ -24,9 +24,14 @@ public class ItemPersistenceServiceImpl implements ItemPersistenceService{
 	}
 
 	//Read
-	public Optional<Item> read(Integer id) {
+	public Item read(Integer id) {
 		logger.info("Read Item.");
-		return itemRepository.findById(id);
+		Optional<Item> readItem = itemRepository.findById(id);
+		Item itemToReturn= null;
+		if (readItem.isPresent()) {
+			itemToReturn = readItem.get();
+		}
+		return itemToReturn;
 	}
 
 	//Update

@@ -10,7 +10,7 @@ public interface ItemPersistenceService {
 	public void create(Item item);
 
 	//Read by id
-	public Optional<Item> read(Integer id);
+	public Item read(Integer id);
 
 	//Update
 	public void update(Item item);

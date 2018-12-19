@@ -12,7 +12,6 @@ public class Item {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-
 	private String descriptionOfContent;
 	private int weightInGram;
 
@@ -43,10 +42,9 @@ public class Item {
 	@Override
 	public String toString() {
 		return "Item{" +
-				"id='" + id + '\'' +
+				"id=" + id +
 				", descriptionOfContent='" + descriptionOfContent + '\'' +
 				", weightInGram=" + weightInGram +
 				'}';
 	}
-
 }
