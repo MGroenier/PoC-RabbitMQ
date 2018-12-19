@@ -1,4 +1,4 @@
-package nl.groenier.itempersistenceservice.models;
+package nl.groenier.locationpersistenceservice.models;
 
 public class Location {
 
@@ -55,4 +55,5 @@ public class Location {
 	public void setCountry(String country) {
 		this.country = country;
 	}
+
 }
