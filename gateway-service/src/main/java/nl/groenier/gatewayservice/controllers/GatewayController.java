@@ -16,7 +16,7 @@ public class GatewayController {
 
 	@GetMapping("/label")
 	@ResponseBody
-	public String ha(@RequestParam(name="item-id") int item_id) {
+	public String readLabel(@RequestParam(name="item-id") int item_id) {
 
 		// This endpoint should eventually request the "Label Business Service" for the label of the item
 		// with the passed item_id.	Using a Request/Reply pattern..?

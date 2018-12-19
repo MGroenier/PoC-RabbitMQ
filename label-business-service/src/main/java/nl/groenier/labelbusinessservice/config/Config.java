@@ -13,23 +13,19 @@ public class Config {
 
 	@Bean
 	public Declarables qs() {
-
 		Queue labelReadQueue = new Queue("label-read-queue", false);
-
 		return new Declarables(labelReadQueue);
 	}
 
 	@Bean
 	public Declarables ex() {
 		TopicExchange labelTopicExchange = new TopicExchange("label-topic-exchange");
-
 		return new Declarables(labelTopicExchange);
 	}
 
 	@Bean
 	public Declarables bd() {
 		Binding labelReadBinding = new Binding("label-read-queue", Binding.DestinationType.QUEUE,"label-topic-exchange","label.read", null);
-
 		return new Declarables(labelReadBinding);
 	}
 

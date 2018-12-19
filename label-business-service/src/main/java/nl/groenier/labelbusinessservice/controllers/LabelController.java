@@ -18,7 +18,7 @@ public class LabelController {
 	}
 
 	@RabbitListener(queues = "label-read-queue")
-	public String getLabel(int id) {
+	public String readLabel(int id) {
 		System.out.println("Label Business Service --- Label requested!");
 
 		String reply = itemService.requestReplyLabel(id);
@@ -28,15 +28,6 @@ public class LabelController {
 		Item receivedItem = gson.fromJson(reply,Item.class);
 
 		System.out.println(receivedItem);
-
-		return reply;
-	}
-
-	@RabbitListener(queues = "item-created-queue")
-	public String something(int id) {
-		System.out.println("Label Business Service --- Received a message!");
-
-		String reply = itemService.requestReplyItem(id);
 
 		return reply;
 	}

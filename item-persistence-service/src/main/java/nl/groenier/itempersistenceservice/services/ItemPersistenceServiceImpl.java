@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class ItemService {
+public class ItemPersistenceServiceImpl implements ItemPersistenceService{
 
 	@Autowired
 	private ItemRepository itemRepository;
@@ -19,23 +19,12 @@ public class ItemService {
 	}
 
 	//Read
-//	public void read(Item item) {
-//		itemRepository.findAll(item);
-//	}
-
-	//Read
 	public Optional<Item> read(Integer id) {
 		return itemRepository.findById(id);
 	}
 
-	public Iterable<Item> readAll() {
-		return itemRepository.findAll();
-	}
-
 	//Update
-	public void update(Item item) {
-
-	}
+	public void update(Item item) {	}
 
 	//Delete
 	public void delete(Item item) {
