@@ -22,7 +22,6 @@ public class ItemServiceImpl implements ItemService{
 	public String requestReplyLabel(int id) {
 		logger.info("Sending message to exchange 'item-topic-exchange' with routingKey 'item.read'");
 		String response = (String) rabbitTemplate.convertSendAndReceive("item-topic-exchange", "item.read", id);
-
 		logger.info("Received reply: " + response);
 		return response;
 	}

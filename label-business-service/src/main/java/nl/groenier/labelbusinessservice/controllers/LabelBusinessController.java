@@ -2,6 +2,7 @@ package nl.groenier.labelbusinessservice.controllers;
 
 import com.google.gson.Gson;
 import nl.groenier.labelbusinessservice.models.Item;
+import nl.groenier.labelbusinessservice.models.Label;
 import nl.groenier.labelbusinessservice.services.ItemService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,14 +26,18 @@ public class LabelBusinessController {
 	public String readLabel(int id) {
 		logger.info("Message read from label-read-queue");
 
-		String reply = itemService.requestReplyLabel(id);
+		String replyFromServer = itemService.requestReplyLabel(id);
 
-		logger.debug("Read message: " + reply);
+		logger.debug("Read message: " + replyFromServer);
 
-		Item receivedItem = gson.fromJson(reply,Item.class);
+		Item receivedItem = gson.fromJson(replyFromServer,Item.class);
+
+		Label label = new Label(receivedItem);
+		String replyToClient = gson.toJson(label, Label.class);
+
 		logger.info("received deserialized Item: " + receivedItem);
 
-		return reply;
+		return replyToClient;
 	}
 
 }
