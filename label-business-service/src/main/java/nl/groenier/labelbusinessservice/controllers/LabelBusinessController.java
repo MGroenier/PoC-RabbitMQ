@@ -34,10 +34,10 @@ public class LabelBusinessController {
 		String replyFromItemService = itemService.requestReplyItem(id);
 		Item receivedItem = gson.fromJson(replyFromItemService,Item.class);
 
-		String originJson = locationService.requestReplyLocation(0);
+		String originJson = locationService.requestReplyLocation(receivedItem.getOrigin());
 		Location origin = gson.fromJson(originJson, Location.class);
 
-		String destinationJson = locationService.requestReplyLocation(1);
+		String destinationJson = locationService.requestReplyLocation(receivedItem.getDestination());
 		Location destination = gson.fromJson(destinationJson, Location.class);
 
 		Label label = new Label(receivedItem, origin, destination);

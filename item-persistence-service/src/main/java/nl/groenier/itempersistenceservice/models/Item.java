@@ -10,6 +10,8 @@ public class Item {
 	private Integer id;
 	private String descriptionOfContent;
 	private int weightInGram;
+	private int origin;
+	private int destination;
 
 	public Integer getId() {
 		return id;
@@ -35,12 +37,30 @@ public class Item {
 		this.weightInGram = weightInGram;
 	}
 
+	public int getOrigin() {
+		return origin;
+	}
+
+	public void setOrigin(int origin) {
+		this.origin = origin;
+	}
+
+	public int getDestination() {
+		return destination;
+	}
+
+	public void setDestination(int destination) {
+		this.destination = destination;
+	}
+
 	@Override
 	public String toString() {
 		return "Item{" +
 				"id=" + id +
 				", descriptionOfContent='" + descriptionOfContent + '\'' +
 				", weightInGram=" + weightInGram +
+				", origin=" + origin +
+				", destination=" + destination +
 				'}';
 	}
 }
