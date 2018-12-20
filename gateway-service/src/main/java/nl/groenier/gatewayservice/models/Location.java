@@ -1,4 +1,4 @@
-package nl.groenier.labelbusinessservice.models;
+package nl.groenier.gatewayservice.models;
 
 public class Location {
 

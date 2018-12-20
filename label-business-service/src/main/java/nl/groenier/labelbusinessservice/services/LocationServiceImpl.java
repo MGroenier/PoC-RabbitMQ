@@ -7,21 +7,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ItemServiceImpl implements ItemService{
+public class LocationServiceImpl implements LocationService {
 
-	private final Logger logger = LoggerFactory.getLogger(ItemServiceImpl.class);
+	private final Logger logger = LoggerFactory.getLogger(LocationServiceImpl.class);
 
 	private RabbitTemplate rabbitTemplate;
 
 	@Autowired
-	public ItemServiceImpl(RabbitTemplate rabbitTemplate) {
+	public LocationServiceImpl(RabbitTemplate rabbitTemplate) {
 		this.rabbitTemplate = rabbitTemplate;
 	}
 
 	@Override
-	public String requestReplyItem(int id) {
+	public String requestReplyLocation(int id) {
 		logger.info("Sending message to exchange 'item-topic-exchange' with routingKey 'item.read'");
-		String response = (String) rabbitTemplate.convertSendAndReceive("item-topic-exchange", "item.read", id);
+		String response = (String) rabbitTemplate.convertSendAndReceive("location-topic-exchange", "location.read", id);
 		logger.info("Received reply: " + response);
 		return response;
 	}
