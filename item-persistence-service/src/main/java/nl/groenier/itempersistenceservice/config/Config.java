@@ -47,7 +47,7 @@ public class Config {
 	}
 
 	@Bean
-	public ItemPersistenceController itemController() {
+	public ItemPersistenceController itemPersistenceController() {
 		return new ItemPersistenceController();
 	}
 

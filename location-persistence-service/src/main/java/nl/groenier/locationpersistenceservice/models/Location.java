@@ -1,26 +1,23 @@
 package nl.groenier.locationpersistenceservice.models;
 
+import javax.persistence.*;
+
+@Entity
 public class Location {
 
-	private String id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer id;
 	private String streetName;
-	private String streetNumber;
+	private Integer streetNumber;
 	private String postalCode;
 	private String country;
 
-	public Location(String id, String streetName, String streetNumber, String postalCode, String country) {
-		this.id = id;
-		this.streetName = streetName;
-		this.streetNumber = streetNumber;
-		this.postalCode = postalCode;
-		this.country = country;
-	}
-
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -32,11 +29,11 @@ public class Location {
 		this.streetName = streetName;
 	}
 
-	public String getStreetNumber() {
+	public Integer getStreetNumber() {
 		return streetNumber;
 	}
 
-	public void setStreetNumber(String streetNumber) {
+	public void setStreetNumber(Integer streetNumber) {
 		this.streetNumber = streetNumber;
 	}
 
@@ -54,6 +51,17 @@ public class Location {
 
 	public void setCountry(String country) {
 		this.country = country;
+	}
+
+	@Override
+	public String toString() {
+		return "Location{" +
+				"id=" + id +
+				", streetName='" + streetName + '\'' +
+				", streetNumber=" + streetNumber +
+				", postalCode='" + postalCode + '\'' +
+				", country='" + country + '\'' +
+				'}';
 	}
 
 }
