@@ -11,6 +11,7 @@ public class ItemServiceImpl implements ItemService{
 
 	private final Logger logger = LoggerFactory.getLogger(ItemServiceImpl.class);
 
+//	@Autowired
 	private RabbitTemplate rabbitTemplate;
 
 	@Autowired

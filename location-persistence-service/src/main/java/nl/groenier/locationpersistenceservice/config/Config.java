@@ -20,11 +20,14 @@ public class Config {
 		Queue locationUpdatedQueue = new Queue("location-updated-queue", false);
 		Queue locationDeletedQueue = new Queue("location-deleted-queue", false);
 
+		Queue locationReadReplyQueue = new Queue("location-read-reply-queue", false);
+
 		return new Declarables(
 				locationCreatedQueue,
 				locationReadQueue,
 				locationUpdatedQueue,
-				locationDeletedQueue);
+				locationDeletedQueue,
+				locationReadReplyQueue);
 	}
 
 	@Bean
@@ -40,12 +43,14 @@ public class Config {
 		Binding locationReadBinding = new Binding("location-read-queue", Binding.DestinationType.QUEUE,"location-topic-exchange","location.read", null);
 		Binding locationUpdatedBinding = new Binding("location-updated-queue", Binding.DestinationType.QUEUE,"location-topic-exchange","location.updated", null);
 		Binding locationDeletedBinding = new Binding("location-deleted-queue", Binding.DestinationType.QUEUE,"location-topic-exchange","location.deleted", null);
+		Binding locationReadReplyBinding = new Binding("location-read-reply-queue", Binding.DestinationType.QUEUE,"location-topic-exchange","location.read.reply", null);
 
 		return new Declarables(
 				locationCreatedBinding,
 				locationReadBinding,
 				locationUpdatedBinding,
-				locationDeletedBinding);
+				locationDeletedBinding,
+				locationReadReplyBinding);
 	}
 
 	@Bean
